@@ -14,9 +14,9 @@ import { NavigationLink } from "./NavigationLink";
 
 const navigation = [
   { name: "Chat", href: "/app/chat", icon: ChatBubbleLeftEllipsisIcon },
+  { name: "Projects", href: "/app/projects", icon: FolderIcon },
   { name: "Agents", href: "/app/agents", icon: UsersIcon },
-  { name: "Templates", href: "/app/templates", icon: FolderIcon },
-  { name: "Documents", href: "/app/documents", icon: DocumentDuplicateIcon },
+  { name: "Templates", href: "/app/templates", icon: DocumentDuplicateIcon },
 ];
 
 export type SidebarLayoutProps = {};

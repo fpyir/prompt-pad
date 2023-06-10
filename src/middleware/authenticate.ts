@@ -1,10 +1,11 @@
+import { AUTH_OPTIONS, getServerSession } from "@/internal/authentication";
 import { NextApiRequest, NextApiResponse } from "next";
+import { User } from "next-auth";
 import nc, { NextHandler } from "next-connect";
-import { verifyIdToken, AuthUser } from "next-firebase-auth";
 
 // Extend the NextApiRequest type with the user property
 export type AuthenticatedRequest = NextApiRequest & {
-  user?: AuthUser;
+  user?: User;
 };
 
 // Middleware function for authentication
@@ -14,16 +15,13 @@ export const authenticate = async (
   next: NextHandler
 ) => {
   try {
-    const token = req.headers.authorization?.replace("Bearer ", "");
+    const session = await getServerSession(req, res);
 
-    if (!token) {
-      return res.status(403).json({ error: "No token provided" });
+    if (!session || !session.user) {
+      return res.status(403).json({ error: "Authentication failed" });
     }
 
-    const decodedToken = await verifyIdToken(token);
-
-    // You can access the user's decoded token data via decodedToken.uid, decodedToken.email, etc.
-    req.user = decodedToken;
+    req.user = session.user;
 
     next();
   } catch (error) {

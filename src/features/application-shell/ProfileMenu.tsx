@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import classNames from "classnames";
+import { RandomAvatar } from "../avatar/Avatar";
 
 interface ProfileMenuProps {
   name: string;
@@ -13,11 +14,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ name, profileImgSrc }) => {
     <Menu as="div" className="relative">
       <Menu.Button className="-m-1.5 flex items-center p-1.5">
         <span className="sr-only">Open user menu</span>
-        <img
-          className="h-8 w-8 rounded-full bg-gray-50"
-          src={profileImgSrc}
-          alt=""
-        />
+        <RandomAvatar className="h-8 w-8 rounded-full bg-gray-50" />
         <span className="hidden lg:flex lg:items-center">
           <span
             className="ml-4 text-sm font-semibold leading-6 text-gray-900"
