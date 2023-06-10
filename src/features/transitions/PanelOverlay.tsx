@@ -1,24 +1,16 @@
-"use client";
-import React, { Fragment, useState } from "react";
-import classNames from "classnames";
-import { Dialog, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/solid";
+import React, { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 export type PanelOverlayProps = {
   show: boolean;
   onClose: () => void;
-  direction: "left" | "right";
   children: React.ReactNode;
 };
 
 export const PanelOverlay: React.FC<PanelOverlayProps> = ({
   show,
   onClose,
-  direction,
   children,
 }) => {
   return (
