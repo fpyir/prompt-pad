@@ -4,7 +4,7 @@ import { Button } from "@/widgets/button";
 import { TextInput } from "@/widgets/text-input";
 import { Form } from "react-final-form";
 
-export default function Home() {
+export default function Login() {
   const onSubmit = (values) => {
     console.log(values); // Replace with actual form submission
   };
@@ -53,16 +53,6 @@ export default function Home() {
             </form>
           )}
         />
-
-        <p className="mt-10 text-center text-sm text-gray-500">
-          Not a member?{" "}
-          <a
-            href="#"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-          >
-            Start a 14 day free trial
-          </a>
-        </p>
       </div>
     </div>
   );
