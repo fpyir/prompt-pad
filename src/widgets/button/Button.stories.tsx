@@ -1,7 +1,7 @@
 // Storybook file for Button.tsx
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Button, { ButtonProps } from "./Button";
+import { Button, ButtonProps } from "./Button";
 
 export default {
   component: Button,

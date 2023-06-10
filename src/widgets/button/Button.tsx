@@ -10,7 +10,7 @@ export type ButtonProps = {
   variant?: ButtonVariant;
 };
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   type,
   onClick,
   children,
@@ -25,5 +25,3 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;
