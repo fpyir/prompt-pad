@@ -1,9 +1,10 @@
 import React from "react";
 import classNames from "classnames";
 
-export type BadgeProps =
-  | { removable: true; onRemove: () => void; children: React.ReactNode }
-  | { removable?: false; children: React.ReactNode };
+export type BadgeProps = { children: React.ReactNode } & (
+  | { removable: true; onRemove: () => void }
+  | { removable?: false }
+);
 
 export const Badge: React.FC<BadgeProps> = (props) => {
   return (

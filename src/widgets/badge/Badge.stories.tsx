@@ -12,12 +12,7 @@ export default {
   },
 } as Meta;
 
-const BadgeDemo: React.FC<BadgeProps> = (props) => {
-  return <Badge {...props} />;
-};
-
 export const Playground: StoryObj<BadgeProps> = {
-  render: (args) => <BadgeDemo {...args} />,
   args: {
     removable: false,
     children: "Badge text",
@@ -26,20 +21,21 @@ export const Playground: StoryObj<BadgeProps> = {
 
 // Extra stories
 export const DefaultBadge: StoryObj<BadgeProps> = {
-  render: () => <BadgeDemo children="Default Badge" />,
+  args: {
+    children: "Default Badge",
+    removable: false,
+  },
   parameters: {
     controls: { include: [] },
   },
 };
 
 export const RemovableBadge: StoryObj<BadgeProps> = {
-  render: () => (
-    <BadgeDemo
-      removable={true}
-      onRemove={() => {}}
-      children="Removable Badge"
-    />
-  ),
+  args: {
+    removable: true,
+    onRemove: () => {},
+    children: "Removable Badge",
+  },
   parameters: {
     controls: { include: [] },
   },
