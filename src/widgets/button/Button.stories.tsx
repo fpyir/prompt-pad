@@ -5,6 +5,7 @@ import Button, { ButtonProps } from "./Button";
 
 export default {
   component: Button,
+  title: "Widgets/Button",
   argTypes: {
     type: { control: "radio", options: ["button", "submit", "reset"] },
     onClick: { action: "clicked" },

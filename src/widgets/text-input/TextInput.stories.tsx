@@ -5,6 +5,7 @@ import { Form } from "react-final-form";
 
 export default {
   component: TextInput,
+  title: "Widgets/TextInput",
   argTypes: {
     icon: { control: "object" },
     label: { control: "text" },
