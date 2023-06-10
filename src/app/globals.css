@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Primary Button */
+  --btn-primary-bg: theme('colors.indigo.600');
+  --btn-primary-text: #ffffff;
+  --btn-primary-bg-hover: theme('colors.indigo.500');
+  --btn-primary-outline: theme('colors.indigo.600');
+
+  /* Secondary Button */
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-border: theme('colors.indigo.600');
+  --btn-secondary-text: theme('colors.indigo.600');
+  --btn-secondary-bg-hover: theme('colors.indigo.100');
+  --btn-secondary-outline: theme('colors.indigo.400');
+}

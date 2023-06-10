@@ -8,14 +8,21 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        'btn-primary-bg': 'var(--btn-primary-bg)',
+        'btn-secondary-bg': 'var(--btn-secondary-bg)',
+        'btn-secondary-border': 'var(--btn-secondary-border)',
+        'btn-primary-text': 'var(--btn-primary-text)',
+        'btn-secondary-text': 'var(--btn-secondary-text)',
+        'btn-primary-bg-hover': 'var(--btn-primary-bg-hover)',
+        'btn-secondary-bg-hover': 'var(--btn-secondary-bg-hover)',
+        'btn-primary-outline': 'var(--btn-primary-outline)',
+        'btn-secondary-outline': 'var(--btn-secondary-outline)',
       },
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
   ],
 }

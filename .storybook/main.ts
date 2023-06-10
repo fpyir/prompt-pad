@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from "@storybook/nextjs";
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -15,10 +15,8 @@ const config: StorybookConfig = {
     },
   ],
   framework: {
-    name: "@storybook/react-vite",
-    options: {
-      legacyRootApi: true,
-    },
+    name: "@storybook/nextjs",
+    options: {},
   },
   docs: {
     autodocs: "tag",

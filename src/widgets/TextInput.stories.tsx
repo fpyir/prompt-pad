@@ -1,62 +1,54 @@
-import { useState } from "react";
+import { StoryObj, Meta } from "@storybook/react";
 import { TextInput, TextInputProps } from "./TextInput";
-import { Meta, StoryObj } from "@storybook/react";
-import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import { ExclamationCircleIcon } from "@heroicons/react/24/solid";
+import { Form } from "react-final-form";
 
 export default {
   component: TextInput,
-  title: "TextInput",
   argTypes: {
+    icon: { control: "object" },
     label: { control: "text" },
-    id: { control: "text" },
-    onChange: { action: "changed" },
-    value: { control: "text" },
-    valid: { control: "boolean" },
     errorMessage: { control: "text" },
+    placeholder: { control: "text" },
+    containerClassName: { control: "text" },
   },
 } as Meta;
 
+const TextInputDemo: React.FC<TextInputProps> = (props) => {
+  return (
+    <div>
+      <div className="prose mb-6">
+        <h2>Text Input</h2>
+        <p>
+          Type something in the input field below. The input field will become
+          invalid if you type "invalid".
+        </p>
+      </div>
+      <Form
+        onSubmit={() => {}}
+        render={() => (
+          <form className="max-w-xs">
+            <TextInput
+              {...props}
+              name="demo"
+              validate={(value) =>
+                value === "invalid" ? "Invalid" : undefined
+              }
+            />
+          </form>
+        )}
+      />
+    </div>
+  );
+};
+
 export const Playground: StoryObj<TextInputProps> = {
-  render: (args: TextInputProps) => (
-    <TextInput containerClassName="max-w-xs" {...args} />
-  ),
-  args: {
-    label: "Email",
-    id: "email",
-    value: "",
-    valid: true,
-    errorMessage: "",
-    placeholder: "Enter an email",
-  },
+  render: (args) => <TextInputDemo {...args} />,
 };
 
-export const Icons: StoryObj<TextInputProps> = {
-  render: (args) => <TextInput containerClassName="max-w-xs" {...args} />,
-  args: {
-    ...Playground.args,
-    icon: <EnvelopeIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />,
-    placeholder: "Placeholder",
-  },
-  parameters: { controls: { include: [] } },
-};
-
-export const ValidInput: StoryObj<TextInputProps> = {
-  render: (args) => <TextInput containerClassName="max-w-xs" {...args} />,
-  args: {
-    ...Playground.args,
-    value: "ValidInput",
-    valid: true,
-  },
-  parameters: { controls: { include: [] } },
-};
-
-export const InvalidInput: StoryObj<TextInputProps> = {
-  render: (args) => <TextInput containerClassName="max-w-xs" {...args} />,
-  args: {
-    ...Playground.args,
-    value: "InvalidInput",
-    valid: false,
-    errorMessage: "This is an invalid input",
-  },
-  parameters: { controls: { include: [] } },
+Playground.args = {
+  icon: <ExclamationCircleIcon />,
+  label: "Your Label",
+  placeholder: "Placeholder",
+  containerClassName: "container-class",
 };
