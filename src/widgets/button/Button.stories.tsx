@@ -35,6 +35,9 @@ export const Primary: StoryObj<ButtonProps> = {
     children: "Primary button",
     variant: "primary",
   },
+  parameters: {
+    controls: { include: [] },
+  },
 };
 
 export const Secondary: StoryObj<ButtonProps> = {
@@ -43,5 +46,8 @@ export const Secondary: StoryObj<ButtonProps> = {
     type: "button",
     children: "Secondary button",
     variant: "secondary",
+  },
+  parameters: {
+    controls: { include: [] },
   },
 };
