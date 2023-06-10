@@ -20,7 +20,7 @@ export const NavigationLink: React.FC<NavigationItem> = ({
   const linkClasses = classNames(
     isActive
       ? "bg-orange-600 text-white"
-      : "text-stone-800 hover:text-white hover:bg-orange-600",
+      : "text-stone-800 hover:text-white hover:bg-orange-500",
     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
   );
 

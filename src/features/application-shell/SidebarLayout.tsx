@@ -13,11 +13,10 @@ import {
 import { NavigationLink } from "./NavigationLink";
 
 const navigation = [
-  { name: "Dashboard", href: "/dashboard", icon: HomeIcon },
-  { name: "Chat", href: "#", icon: ChatBubbleLeftEllipsisIcon },
-  { name: "Agents", href: "#", icon: UsersIcon },
-  { name: "Templates", href: "#", icon: FolderIcon },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon },
+  { name: "Chat", href: "/app/chat", icon: ChatBubbleLeftEllipsisIcon },
+  { name: "Agents", href: "/app/agents", icon: UsersIcon },
+  { name: "Templates", href: "/app/templates", icon: FolderIcon },
+  { name: "Documents", href: "/app/documents", icon: DocumentDuplicateIcon },
 ];
 
 export type SidebarLayoutProps = {};
