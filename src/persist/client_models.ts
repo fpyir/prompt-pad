@@ -46,3 +46,15 @@ export const MockChatGPTAgent: ClientAgent = {
   name: "ChatGPT",
   type: AgentType.ChatGPT3,
 };
+
+export const MockChat: ClientChat = {
+  id: 1,
+  name: "Mock Chat",
+  chatAgentId: MockChatGPTAgent.id,
+  chatAgentName: MockChatGPTAgent.name,
+  chatAgentType: MockChatGPTAgent.type,
+
+  latestThreadId: 1,
+
+  chatMessages: [],
+};

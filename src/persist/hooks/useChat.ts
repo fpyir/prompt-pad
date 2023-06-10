@@ -1,5 +1,5 @@
 import { useStorage } from "@/utils/use_storage";
-import { ClientChat } from "../client_models";
+import { ClientChat, MockChat } from "../client_models";
 import { useChatMessages } from "./useChatMessages";
 
 export function useChat(chatId: number) {
@@ -7,7 +7,8 @@ export function useChat(chatId: number) {
     data: chat,
     isLoading: chatIsLoading,
     error: chatError,
-  } = useStorage<ClientChat>(`chat_${chatId}`);
+    setData: setChat,
+  } = useStorage<ClientChat>(`chat_${chatId}`, MockChat);
 
   const {
     chatMessages,
@@ -16,6 +17,29 @@ export function useChat(chatId: number) {
     addChatMessage,
     clearChatMessages,
   } = useChatMessages(chatId, chat?.latestThreadId ?? 1);
+
+  const startNewThread = async () => {
+    if (!chat) {
+      return;
+    }
+
+    const newThreadId = (chat?.latestThreadId ?? 1) + 1;
+    await setChat({
+      ...chat,
+      latestThreadId: newThreadId,
+    });
+  };
+
+  const clearChat = async () => {
+    if (!chat) {
+      return;
+    }
+
+    await setChat({ ...chat, latestThreadId: 1 });
+    await clearChatMessages();
+  };
+
+  console.log(chat);
 
   return {
     chat,
@@ -26,7 +50,8 @@ export function useChat(chatId: number) {
     messagesIsLoading,
     messagesError,
 
+    startNewThread,
     addChatMessage,
-    clearChatMessages,
+    clearChat,
   };
 }
